@@ -1,0 +1,44 @@
+---
+- name: Install zsh
+  apt: pkg={{item}} state=present
+  sudo: yes
+  with_items:
+    - zsh
+
+- name: Clone oh-my-zsh
+  git: repo=git://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+# TODO: this may belong in a separate role or more
+- name: Clone fasd
+  git: repo=https://github.com/clvv/fasd.git dest=~/opt/fasd
+
+- name: Install .zshrc
+  copy: src=.zshrc dest=~/.zshrc
+
+- name: Set shell to zsh
+  user: shell=/bin/zsh name=anttis state=present
+  sudo: yes
+
+- name: Create dir for custom plugins
+  file: state=directory path=~/.oh-my-zsh/custom/plugins
+
+- name: Clone oh-my-drush
+  git: repo=https://github.com/kid-icarus/oh-my-drush.git dest=~/.oh-my-zsh/custom/plugins/drush
+
+- name: Link the drush part of oh-my-drush
+  file: state=link dest=~/.drush/drush_zsh.drush.inc src=~/.oh-my-zsh/custom/plugins/drush/drush_zsh.drush.inc
+
+- name: Clone zsh-syntax-highlighting
+  git: repo=git://github.com/zsh-users/zsh-syntax-highlighting.git dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+
+- name: Clone zaw
+  git: repo=git://github.com/zsh-users/zaw.git dest=~/.oh-my-zsh/custom/plugins/zaw
+
+- name: Clone ergoemacs-zsh
+  git: repo=https://github.com/ajsalminen/ergoemacs-zsh-keybinds.git dest=~/.oh-my-zsh/custom/ergoemacs-zsh-keybinds
+
+- name: Copy custom zsh configuration
+  copy: src={{item}} dest=~/.oh-my-zsh/custom/
+  with_fileglob:
+    - "*.zsh"
