@@ -1,14 +1,14 @@
-
-function autopair5() {
+# Adapted from https://github.com/rsuhada/.oh-my-zsh
+function autopair_singlequotes() {
     LBUFFER+="'"
     RBUFFER="'$RBUFFER"
 }
-zle -N autopair5 autopair5
-bindkey "'" autopair5
+zle -N autopair_singlequotes autopair_singlequotes
+bindkey "'" autopair_singlequotes
 
-function autopair6() {
+function autopair_doublequotes() {
     LBUFFER+="\""
     RBUFFER="\"$RBUFFER"
 }
-zle -N autopair6 autopair6
-bindkey "\"" autopair6
+zle -N autopair_doublequotes autopair_doublequotes
+bindkey "\"" autopair_doublequotes
