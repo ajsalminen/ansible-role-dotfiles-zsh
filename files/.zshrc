@@ -99,3 +99,7 @@ _files_and_commands () {
 # Always match files first and command names only if no files match.
 #compdef '_files_and_commands' -command-
 compdef '_files || _command_names' -command-
+
+# completion for a couple of aliases
+compdef rs=ssh
+compdef os=ssh
