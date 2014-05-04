@@ -6,8 +6,8 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="blinks"
-
+#ZSH_THEME="blinks"
+ZSH_THEME="jreese"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -103,3 +103,4 @@ compdef '_files || _command_names' -command-
 # completion for a couple of aliases
 compdef rs=ssh
 compdef os=ssh
+zstyle ':completion:*' insert-tab false
