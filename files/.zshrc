@@ -90,6 +90,7 @@ bindkey " " globalias
 bindkey "^ " magic-space           # control-space to bypass completion
 bindkey -M isearch " " magic-space # normal space during searches
 
+# Complete both files and commands at the same time.
 _files_and_commands () {
     _files
     local ret=$?
@@ -97,10 +98,14 @@ _files_and_commands () {
 }
 
 # Always match files first and command names only if no files match.
-#compdef '_files_and_commands' -command-
 compdef '_files || _command_names' -command-
+#compdef '_files_and_commands' -command-
+
 
 # completion for a couple of aliases
 compdef rs=ssh
 compdef os=ssh
+
+# Complete on empty line instead of inserting a tab.
+# (The default is mainly for pasting indented snippets.)
 zstyle ':completion:*' insert-tab false
