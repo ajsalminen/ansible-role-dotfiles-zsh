@@ -108,6 +108,7 @@ compdef os=ssh
 compdef vs=ssh
 compdef vp=ssh
 compdef vu=ssh
+compdef vd=ssh
 
 # Complete on empty line instead of inserting a tab.
 # (The default is mainly for pasting indented snippets.)
