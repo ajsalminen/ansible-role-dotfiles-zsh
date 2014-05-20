@@ -47,7 +47,7 @@ ZSH_THEME="jreese"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # per-directory-history
-plugins=(extract git colored-man mosh sudo drush debian zsh-syntax-highlighting zaw ergoemacs-keybinds)
+plugins=(extract git colored-man mosh sudo drush debian zsh-syntax-highlighting zaw ergoemacs-keybinds vagrant)
 # singlechar systemadmin maybe
 source $ZSH/oh-my-zsh.sh
 
@@ -105,6 +105,9 @@ compdef '_files || _command_names' -command-
 # completion for a couple of aliases
 compdef rs=ssh
 compdef os=ssh
+compdef vs=ssh
+compdef vp=ssh
+compdef vu=ssh
 
 # Complete on empty line instead of inserting a tab.
 # (The default is mainly for pasting indented snippets.)
