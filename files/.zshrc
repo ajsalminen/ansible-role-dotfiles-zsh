@@ -113,3 +113,4 @@ compdef vd=ssh
 # Complete on empty line instead of inserting a tab.
 # (The default is mainly for pasting indented snippets.)
 zstyle ':completion:*' insert-tab false
+zstyle ':completion:*:(vs|vp|vu|vd):*' hosts "${(f)$(</etc/vagrant_hosts)}"
