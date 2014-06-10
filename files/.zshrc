@@ -111,6 +111,7 @@ compdef vu=ssh
 compdef vd=ssh
 compdef vr=ssh
 compdef vh=ssh
+compdef va=ssh
 
 
 # Complete on empty line instead of inserting a tab.
