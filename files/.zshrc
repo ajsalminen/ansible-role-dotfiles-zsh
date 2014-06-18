@@ -47,7 +47,7 @@ ZSH_THEME="jreese"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # per-directory-history
-plugins=(extract git colored-man mosh sudo drush debian zsh-syntax-highlighting zaw ergoemacs-keybinds vagrant)
+plugins=(extract colored-man mosh sudo drush debian zsh-syntax-highlighting zaw ergoemacs-keybinds vagrant)
 # singlechar systemadmin maybe
 source $ZSH/oh-my-zsh.sh
 
