@@ -127,3 +127,9 @@ zstyle ':completion:*:(vs|vp|vu|vd|vh|va|vr):*' hosts "${(f)$(</etc/vagrant_host
 # Don't cache completion so new commands will be instantly available.
 # https://unix.stackexchange.com/questions/2179/rebuild-auto-complete-index-or-whatever-its-called-and-binaries-in-path-cach
 zstyle ":completion:*:commands" rehash 1
+
+function last_command() {
+  echo `history | tail -1 | cut -d ' ' -f 3-20 | realiaser`
+}
+
+RPROMPT='%{$fg[$NCOLOR]%}%p $(last_command)%{$reset_color%}'
