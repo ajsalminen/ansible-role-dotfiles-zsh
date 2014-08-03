@@ -128,8 +128,24 @@ zstyle ':completion:*:(vs|vp|vu|vd|vh|va|vr):*' hosts "${(f)$(</etc/vagrant_host
 # https://unix.stackexchange.com/questions/2179/rebuild-auto-complete-index-or-whatever-its-called-and-binaries-in-path-cach
 zstyle ":completion:*:commands" rehash 1
 
+# realiaser config.
 function last_command() {
   echo `history | tail -1 | cut -d ' ' -f 3-20 | realiaser`
 }
 
 RPROMPT='%{$fg[$NCOLOR]%}%p $(last_command)%{$reset_color%}'
+
+# history
+## Command history configuration
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=20000
+SAVEHIST=20000
+
+unsetopt append_history
+setopt extended_history
+unsetopt hist_expire_dups_first
+unsetopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+# setopt share_history # share command history data
