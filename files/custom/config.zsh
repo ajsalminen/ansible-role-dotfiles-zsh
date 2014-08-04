@@ -31,7 +31,8 @@ accept-line() {
         # Unfortunately ${${(z)BUFFER}[1]} works only for at least two words,
         # thus I had to use additional variable WORDS here.
         local -r FIRSTWORD=${WORDS[1]}
-        if whence $FIRSTWORD 2>&1 >/dev/null; then
+        if [ "$CONTEXT" = "vared" ]; then
+        elif whence $FIRSTWORD 2>&1 >/dev/null; then
         else
             BUFFER="go $BUFFER"
         fi
