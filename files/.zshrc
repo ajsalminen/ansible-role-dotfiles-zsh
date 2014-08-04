@@ -70,14 +70,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 source ~/.commonrc
 
-# This is needed to make go command plugin work with scm breeze
-no_go_git_add() {
-running_vared=1
-git_add_and_commit ""
-unset running_vared
-}
-zle -N git_add_and_commit no_go_git_add
-
 #fpath=(~/.oh-my-zsh/custom/ "${fpath[@]}")
 #autoload -Uz insert-clipboard
 #zle -N insert-clipboard
