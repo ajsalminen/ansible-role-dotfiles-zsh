@@ -8,10 +8,12 @@
 - name: Clone oh-my-zsh
   git: repo=git://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
 
-# TODO: this may belong in a separate role or more
-- name: Clone fasd
-  git: repo=https://github.com/clvv/fasd.git dest=~/opt/fasd
-
+# TODO: these may belong in a separate role or more
+- name: Clone tools
+  git: repo={{item.uri}} dest={{item.dest}}
+  with_items:
+    - { uri: "https://github.com/clvv/fasd.git", dest: ~/opt/fasd }
+    - { uri: "https://github.com/jeffkaufman/icdiff", dest: ~/opt/icdiff }
 - name: Install .zshrc
   copy: src=.zshrc dest=~/.zshrc
 
@@ -36,8 +38,7 @@
   git: repo=git://github.com/zsh-users/zaw.git dest=~/.oh-my-zsh/custom/plugins/zaw
 
 - name: Clone ergoemacs-zsh
-  git: repo=https://github.com/ajsalminen/ergoemacs-zsh-keybinds.git dest=~/.oh-my-zsh/custom/ergoemacs-zsh-keybinds
-  version=modified
+  git: repo=https://github.com/ajsalminen/ergoemacs-zsh-keybinds.git dest=~/.oh-my-zsh/custom/ergoemacs-zsh-keybinds version=modified
 
 - name: Copy custom zsh configuration
   copy: src={{item}} dest=~/.oh-my-zsh/custom/
