@@ -37,6 +37,7 @@
 
 - name: Clone ergoemacs-zsh
   git: repo=https://github.com/ajsalminen/ergoemacs-zsh-keybinds.git dest=~/.oh-my-zsh/custom/ergoemacs-zsh-keybinds
+  version=modified
 
 - name: Copy custom zsh configuration
   copy: src={{item}} dest=~/.oh-my-zsh/custom/
